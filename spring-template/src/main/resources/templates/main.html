@@ -54,6 +54,7 @@
         }
 
         .nav-ul > li {
+            position: relative;
             text-align: center;
             color: #666;
             list-style: none;
@@ -70,11 +71,44 @@
             display: block;
         }
 
+        /* 드롭다운 스타일 */
+        .dropdown {
+            display: none; /* 기본적으로 숨김 */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%; /* 부모 li와 같은 너비로 설정 */
+            background-color: #fff;
+            /*border: 1px solid #dedede;*/
+            z-index: 100;
+            padding: 0; /* list padding 제거 */
+            margin: 0; /* list margin 제거 */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.12);
+        }
 
+        .dropdown li {
+            padding: 10px;
+            color: #666;
+            font-size: 15px;
+            text-align: center;
+            list-style: none; /* list-style 제거 */
+        }
+
+        .dropdown li:hover {
+            background-color: #f4f4f4;
+        }
+
+
+        .nav-ul > li:hover {
+            background-color: lightgray;
+            color: #78B9BA;
+        }
+
+        /* hover 시 드롭다운 표시 */
+        .nav-ul > li:hover .dropdown {
+            display: block;
+        }
     </style>
-    <script>
-
-    </script>
 </head>
 <body>
 <div class="login">
@@ -92,11 +126,36 @@
 
     <div class="nav">
         <ul class="nav-ul">
-            <li>회사소개</li>
-            <li>사업소개</li>
-            <li>제품소개</li>
-            <li>견적문의</li>
-            <li>고객센터</li>
+            <li>회사소개
+                <ul class="dropdown">
+                    <li>인사말</li>
+                    <li>연혁</li>
+                    <li>오시는 길</li>
+                </ul>
+            </li>
+            <li>사업소개
+                <ul class="dropdown">
+                    <li>사업 소개</li>
+                </ul>
+            </li>
+            <li>제품소개
+                <ul class="dropdown">
+                    <li>제품 소개</li>
+                </ul>
+            </li>
+            <li>견적문의
+                <ul class="dropdown">
+                    <li>견적 문의</li>
+                </ul>
+            </li>
+            <li>고객센터
+                <ul class="dropdown">
+                    <li>공지사항</li>
+                    <li>질문과 답변</li>
+                    <li>갤러리</li>
+                    <li>동영상</li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>
