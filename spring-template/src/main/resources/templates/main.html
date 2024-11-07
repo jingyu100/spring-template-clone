@@ -24,6 +24,7 @@
         }
 
         .login-box > img {
+            height: 13px;
             padding-right: 5px;
         }
 
@@ -97,6 +98,10 @@
             background-color: #f4f4f4;
         }
 
+        .body {
+            background-color: lightgray;
+        }
+
         .nav-ul > li:hover {
             background-color: lightgray;
             color: #78B9BA;
@@ -146,6 +151,23 @@
             width: 1200px;
             height: 430px;
             margin: 0 auto;
+        }
+
+        .content-box {
+            margin-left: 30px;
+            background-color: white;
+            width: 450px;
+            height: 370px;
+        }
+
+        .content-box-header > div {
+            display: inline-block;
+            border: 1px solid #78B9BA;
+            background-color: #78B9BA;
+            color: white;
+            margin-top: 20px;
+            padding: 10px 35px;
+            font-weight: bold;
         }
 
     </style>
@@ -207,9 +229,9 @@
                 <li>
                     <div class="content-box">
                         <div class="content-box-header">
-                            <a href="">공지사항</a>
-                            <a href="">질문과 답변</a>
-                            <a href="">갤러리</a>
+                            <div>공지사항</div>
+                            <div>질문과 답변</div>
+                            <div>갤러리</div>
                         </div>
                     </div>
                 </li>
@@ -219,6 +241,8 @@
     <div class="container2"></div>
     <div class="container3"></div>
 </div>
-<div class="footer"></div>
+<div class="footer">
+
+</div>
 </body>
 </html>
