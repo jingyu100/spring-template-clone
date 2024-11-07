@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>rpa0108.thechakan.kr/</title>
     <style>
@@ -60,7 +60,6 @@
             list-style: none;
             cursor: pointer;
             box-sizing: border-box;
-            font-weight: 500;
             transition: all 0.2s;
             border-left: 1px solid #dedede;
             border-right: 1px solid #dedede;
@@ -69,6 +68,7 @@
             width: 240px;
             font-size: 17px;
             display: block;
+            font-weight: 1000;
         }
 
         /* 드롭다운 스타일 */
@@ -79,11 +79,10 @@
             left: 0;
             width: 100%; /* 부모 li와 같은 너비로 설정 */
             background-color: #fff;
-            /*border: 1px solid #dedede;*/
             z-index: 100;
-            padding: 0; /* list padding 제거 */
-            margin: 0; /* list margin 제거 */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.12);
+            padding: 0;
+            margin: 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.12);
         }
 
         .dropdown li {
@@ -91,23 +90,64 @@
             color: #666;
             font-size: 15px;
             text-align: center;
-            list-style: none; /* list-style 제거 */
+            list-style: none;
         }
 
         .dropdown li:hover {
             background-color: #f4f4f4;
         }
 
-
         .nav-ul > li:hover {
             background-color: lightgray;
             color: #78B9BA;
+        }
+
+        .body {
+            background-color: #F5F5F5;
         }
 
         /* hover 시 드롭다운 표시 */
         .nav-ul > li:hover .dropdown {
             display: block;
         }
+
+        .container1 {
+            text-align: center;
+        }
+
+        .container1-box-ul {
+            width: 1200px;
+            padding: 30px 0;
+            list-style: none;
+            margin: 0 auto;
+            display: flex; /* 수평 정렬을 위해 flex 사용 */
+        }
+
+        .container1-box-ul > li {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .container1-box-ul > li:first-child {
+            width: 60%; /* 왼쪽 li의 너비 */
+        }
+
+        .container1-box-ul > li:last-child {
+            width: 40%; /* 오른쪽 li의 너비 */
+        }
+
+        .container1-box-ul > li > img {
+            height: 370px;
+            width: 100%; /* 이미지가 li의 너비를 가득 채우도록 */
+            object-fit: cover; /* 이미지 비율 유지하면서 채움 */
+        }
+
+        .container1-box {
+            width: 1200px;
+            height: 430px;
+            margin: 0 auto;
+        }
+
     </style>
 </head>
 <body>
@@ -159,9 +199,26 @@
         </ul>
     </div>
 </div>
-<div class="container1"></div>
-<div class="container2"></div>
-<div class="container3"></div>
+<div class="body">
+    <div class="container1">
+        <div class="container1-box">
+            <ul class="container1-box-ul">
+                <li><img src="../static/img/content.png" alt=""></li>
+                <li>
+                    <div class="content-box">
+                        <div class="content-box-header">
+                            <a href="">공지사항</a>
+                            <a href="">질문과 답변</a>
+                            <a href="">갤러리</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container2"></div>
+    <div class="container3"></div>
+</div>
 <div class="footer"></div>
 </body>
 </html>
