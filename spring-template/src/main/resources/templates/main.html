@@ -129,9 +129,10 @@
         }
 
         .container1-box-ul > li {
-            display: inline-block;
-            vertical-align: top;
+            flex: 1; /* 각 항목을 균등한 너비로 설정 */
+            margin: 0 5px; /* 항목 간 여백 설정 */
         }
+
 
         .container1-box-ul > li:first-child {
             width: 60%; /* 왼쪽 li의 너비 */
@@ -148,30 +149,36 @@
         }
 
         .container1-box {
-            width: 1200px;
-            height: 430px;
-            margin: 0 auto;
+            display: flex; /* 플렉스 설정으로 항목을 수평으로 정렬 */
         }
 
         .content-box {
-            margin-left: 30px;
             background-color: white;
-            width: 450px;
             height: 370px;
+            display: flex;
+            /*align-items: center;*/
+            /*justify-content: center;*/
+            flex-direction: column;
+        }
+
+        .content-box-header {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 상단에 배치 */
+            height: 100%;
+            padding-top: 15px; /* 상단 여백 추가 */
         }
 
         .content-box-header > div {
-            width: 15%;
-            display: inline-block;
+            width: auto;
             border: 1px solid #78B9BA;
             background-color: #78B9BA;
             color: white;
-            margin-top: 20px;
             padding: 7px 30px;
-            margin-left: 3px;
-            margin-right: 3px;
             font-weight: bold;
-            font-size: 12px;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 5px; /* 텍스트 상단 여백 */
         }
 
         .content-box-header > div > a {
@@ -234,13 +241,24 @@
     <div class="container1">
         <div class="container1-box">
             <ul class="container1-box-ul">
-                <li><img src="../static/img/content.png" alt=""></li>
+                <li>
+                    <div class="content-box">
+                        <div class="content-box-header">
+                            <div><a href="">소식</a></div>
+                        </div>
+                    </div>
+                </li>
                 <li>
                     <div class="content-box">
                         <div class="content-box-header">
                             <div><a href="">공지사항</a></div>
-                            <div><a href="">질문과 답변</a></div>
-                            <div><a href="">갤러리</a></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="content-box">
+                        <div class="content-box-header">
+                            <div><a href="">안내센터</a></div>
                         </div>
                     </div>
                 </li>
