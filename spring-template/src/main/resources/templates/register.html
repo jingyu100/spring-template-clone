@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rpa0108.thechakan.kr/</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .login {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .login-section {
+            width: 1200px;
+            height: 30px;
+            margin: 0 auto;
+        }
+
+        .login-box {
+            float: right;
+            height: 30px;
+        }
+
+        .login-box > img {
+            height: 13px;
+            padding-right: 5px;
+        }
+
+        /* 로고 */
+        .logo {
+            width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            height: 90px;
+        }
+
+        .logo > img {
+            height: 23px;
+            width: 200px;
+            margin-top: 25px;
+        }
+
+        /* 네비게이션 */
+        .nav {
+            border-top: 1px solid #dedede;
+            border-bottom: 1px solid #dedede;
+            text-align: center;
+        }
+
+        .nav-ul {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-ul > li {
+            position: relative;
+            text-align: center;
+            color: #666;
+            list-style: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: all 0.2s;
+            border-left: 1px solid #dedede;
+            border-right: 1px solid #dedede;
+            padding: 11px;
+            height: 48px;
+            width: 240px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .nav-ul > li:hover {
+            background-color: lightgray;
+            color: #78B9BA;
+        }
+
+        /* 드롭다운 스타일 */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            z-index: 100;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        .dropdown li {
+            padding: 10px;
+            color: #666;
+            font-size: 15px;
+            text-align: center;
+            list-style: none;
+        }
+
+        .dropdown li:hover {
+            background-color: #f4f4f4;
+        }
+
+        .nav-ul > li:hover .dropdown {
+            display: block;
+        }
+
+        /* 새로운 컨텐츠 스타일 */
+        .body {
+            background-color: #f5f5f5;
+            min-height: 600px;
+            padding: 50px 0;
+        }
+
+        .agreement-section {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .agreement-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .agreement-box {
+            margin-bottom: 30px;
+        }
+
+        .agreement-box h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .agreement-content {
+            border: 1px solid #ddd;
+            padding: 15px;
+            height: 150px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .checkbox-wrap {
+            margin: 10px 0;
+        }
+
+        .checkbox-wrap input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .checkbox-wrap label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+            text-decoration: none;
+        }
+
+        .btn-back {
+            background-color: #888;
+            color: white;
+        }
+
+        .btn-join {
+            background-color: #333;
+            color: white;
+        }
+
+        /* 푸터 스타일 */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .step-header {
+            display: flex;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .step-header div {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 2px solid #ddd;
+            color: #888;
+            font-weight: bold;
+        }
+
+        .step-header div.active {
+            color: #fff;
+            background-color: #78B9BA;
+            border-bottom: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="login">
+    <div class="login-section">
+        <div class="login-box">
+            <a href="/login"><img src="../static/img/login.png" alt="" class="login-login"></a>
+            <a href="/register"><img src="../static/img/register.png" alt="" class="login-register"></a>
+        </div>
+    </div>
+</div>
+
+<div class="logo-wrap">
+    <div class="logo">
+        <img src="../static/img/logo.png" alt="">
+    </div>
+
+    <div class="nav">
+        <ul class="nav-ul">
+            <li>회사소개
+                <ul class="dropdown">
+                    <li>인사말</li>
+                    <li>연혁</li>
+                    <li>오시는 길</li>
+                </ul>
+            </li>
+            <li>사업소개
+                <ul class="dropdown">
+                    <li>사업 소개</li>
+                </ul>
+            </li>
+            <li>제품소개
+                <ul class="dropdown">
+                    <li>제품 소개</li>
+                </ul>
+            </li>
+            <li>견적문의
+                <ul class="dropdown">
+                    <li>견적 문의</li>
+                </ul>
+            </li>
+            <li>고객센터
+                <ul class="dropdown">
+                    <li>공지사항</li>
+                    <li>질문과 답변</li>
+                    <li>갤러리</li>
+                    <li>동영상</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="body">
+    <div class="agreement-section">
+        <div class="step-header">
+            <div class="active">01 약관동의</div>
+            <div>02 정보입력</div>
+            <div>03 가입완료</div>
+        </div>
+        <h2 class="agreement-title">회원가입약관동의</h2>
+
+        <div class="agreement-box">
+            <h3>제 1 조 (목적)</h3>
+            <div class="agreement-content">
+                이 약관은 기업홍보체 (주)더차칸 (이하 "사이트"라 합니다)에서 제공하는 인터넷서비스(이하 "서비스"라 합니다)의 이용 조건 및 절차에 관한 기업홍보체와 이용자의 권리와의 및 의무 기타 필요한 사항을 규정함을 목적으로 합니다.
+            </div>
+            <div class="checkbox-wrap">
+                <input type="checkbox" id="agree1">
+                <label for="agree1">이용약관에 동의합니다.</label>
+            </div>
+        </div>
+
+        <div class="agreement-box">
+            <h3>개인정보수집 및 이용 약관</h3>
+            <div class="agreement-content">
+                1. 개인정보의 처리 목적<br>
+                - 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별/인증, 회원자격 유지/관리, 서비스 부정이용 방지, 만 14세 미만 아동의 개인정보 처리 시 법정대리인의 동의여부 확인, 각종 고지/통지, 고충처리 목적으로 개인정보를 처리합니다.<br><br>
+
+                2. 개인정보의 처리 및 보유기간<br>
+                - 회원 탈퇴 시까지 또는 관련 법령에서 정한 보유기간까지<br><br>
+
+                3. 정보주체의 권리/의무 및 행사방법<br>
+                - 정보주체는 회사에 대해 언제든지 개인정보 열람, 정정, 삭제, 처리정지 요구 등의 권리를 행사할 수 있습니다.
+            </div>
+            <div class="checkbox-wrap">
+                <input type="checkbox" id="agree2">
+                <label for="agree2">개인정보 수집 및 이용에 동의합니다.</label>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="#" class="btn btn-back">뒤로가기</a>
+            <a href="#" class="btn btn-join">회원가입</a>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div style="width: 1200px; margin: 0 auto; text-align: center;">
+        <div style="margin-bottom: 10px;">
+            회사명: (주)더차칸 | 대표이사: 홍길동 | 사업자등록번호: 123-45-67890
+        </div>
+        <div>
+            주소: 서울특별시 강남구 테헤란로 123 | 전화: 02-123-4567 | 이메일: info@thechakan.kr
+        </div>
+        <div style="margin-top: 10px;">
+            Copyright © 2024 THE CHAKAN. All Rights Reserved.
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>rpa0108.thechakan.kr/</title>
     <style>
+        /* 기본 스타일 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
         .login {
             height: 30px;
             line-height: 30px;
@@ -28,6 +34,7 @@
             padding-right: 5px;
         }
 
+        /* 로고 */
         .logo {
             width: 1200px;
             margin: 0 auto;
@@ -41,6 +48,7 @@
             margin-top: 25px;
         }
 
+        /* 네비게이션 */
         .nav {
             border-top: 1px solid #dedede;
             border-bottom: 1px solid #dedede;
@@ -68,21 +76,23 @@
             height: 48px;
             width: 240px;
             font-size: 17px;
-            display: block;
             font-weight: 500;
+        }
+
+        .nav-ul > li:hover {
+            background-color: lightgray;
+            color: #78B9BA;
         }
 
         /* 드롭다운 스타일 */
         .dropdown {
-            display: none; /* 기본적으로 숨김 */
+            display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            width: 100%; /* 부모 li와 같은 너비로 설정 */
+            width: 100%;
             background-color: #fff;
             z-index: 100;
-            padding: 0;
-            margin: 0;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.12);
         }
 
@@ -98,26 +108,19 @@
             background-color: #f4f4f4;
         }
 
-        .body {
-            background-color: lightgray;
-        }
-
-        .nav-ul > li:hover {
-            background-color: lightgray;
-            color: #78B9BA;
-        }
-
-        .body {
-            background-color: #F5F5F5;
-        }
-
         /* hover 시 드롭다운 표시 */
         .nav-ul > li:hover .dropdown {
             display: block;
         }
 
+        /* 본문 영역 */
+        .body {
+            background-color: #F5F5F5;
+        }
+
         .container1 {
             text-align: center;
+            padding: 30px 0;
         }
 
         .container1-box-ul {
@@ -125,48 +128,42 @@
             padding: 30px 0;
             list-style: none;
             margin: 0 auto;
-            display: flex; /* 수평 정렬을 위해 flex 사용 */
+            display: flex;
         }
 
         .container1-box-ul > li {
-            flex: 1; /* 각 항목을 균등한 너비로 설정 */
-            margin: 0 5px; /* 항목 간 여백 설정 */
+            flex: 1;
+            margin: 0 5px;
         }
 
-
         .container1-box-ul > li:first-child {
-            width: 60%; /* 왼쪽 li의 너비 */
+            width: 60%;
         }
 
         .container1-box-ul > li:last-child {
-            width: 40%; /* 오른쪽 li의 너비 */
+            width: 40%;
         }
 
         .container1-box-ul > li > img {
             height: 370px;
-            width: 100%; /* 이미지가 li의 너비를 가득 채우도록 */
-            object-fit: cover; /* 이미지 비율 유지하면서 채움 */
+            width: 100%;
+            object-fit: cover;
         }
 
-        .container1-box {
-            display: flex; /* 플렉스 설정으로 항목을 수평으로 정렬 */
-        }
-
+        /* 콘텐츠 박스 */
         .content-box {
             background-color: white;
             height: 370px;
             display: flex;
-            /*align-items: center;*/
-            /*justify-content: center;*/
             flex-direction: column;
         }
 
         .content-box-header {
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* 상단에 배치 */
-            height: 100%;
-            padding-top: 15px; /* 상단 여백 추가 */
+            align-items: flex-start;
+            height: auto;
+            padding: 5px 0;
         }
 
         .content-box-header > div {
@@ -178,12 +175,74 @@
             font-weight: bold;
             font-size: 14px;
             text-align: center;
-            margin-top: 5px; /* 텍스트 상단 여백 */
         }
 
         .content-box-header > div > a {
             text-decoration: none;
             color: white;
+        }
+
+        /* 본문 내용 */
+        .content-box-body {
+            padding: 15px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            margin-top: 10px;
+        }
+
+        .content-box-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-box-body li {
+            font-size: 14px;
+            color: #666;
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            white-space: nowrap; /* 텍스트를 한 줄로 제한 */
+            overflow: hidden; /* 넘치는 텍스트 숨기기 */
+            text-overflow: ellipsis; /* 넘치는 텍스트를 ...으로 표시 */
+        }
+
+        .content-box-body .plus-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            align-self: flex-end;
+        }
+
+        .content-box-body .date {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* 이미지 최적화 */
+        .content-box-body img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin-top: -20px;
+        }
+
+        /* 마지막 li의 하단 경계선 제거 */
+        .content-box-body li:last-child {
+            border-bottom: none;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            margin-top: 50px;
         }
 
     </style>
@@ -192,8 +251,8 @@
 <div class="login">
     <div class="login-section">
         <div class="login-box">
-            <img src="../static/img/login.png" alt="" class="login-login">
-            <img src="../static/img/register.png" alt="" class="login-register">
+            <a href="/login"><img src="../static/img/login.png" alt="" class="login-login"></a>
+            <a href="/register"><img src="../static/img/register.png" alt="" class="login-register"></a>
         </div>
     </div>
 </div>
@@ -246,6 +305,26 @@
                         <div class="content-box-header">
                             <div><a href="">소식</a></div>
                         </div>
+                        <div class="content-box-body">
+                            <ul>
+                                <li>
+                                    시민연료 민들레, 10월 전국 집중 촛불집회에서 중...
+                                    <span class="date">2024-11-11</span>
+                                    <img src="../static/img/plus.png" alt="plus" class="plus-icon">
+                                </li>
+                                <li>
+                                    시민연료 민들레 추위원회 구성
+                                    <span class="date">2024-11-10</span>
+                                    <img src="../static/img/plus.png" alt="plus" class="plus-icon">
+                                </li>
+                                <li>
+                                    시민연료 민들레 ‘서울 취소력 영화제’ 공동 주최
+                                    <span class="date">2024-11-09</span>
+                                    <img src="../static/img/plus.png" alt="plus" class="plus-icon">
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
                 </li>
                 <li>
@@ -253,15 +332,39 @@
                         <div class="content-box-header">
                             <div><a href="">공지사항</a></div>
                         </div>
+                        <div class="content-box-body">
+                            <ul>
+                                <li>
+                                    시민연료 분무 공익법인 신청
+                                    <span class="date">2024-11-11</span>
+                                    <img src="../static/img/plus.png" alt="plus" class="plus-icon">
+                                </li>
+                                <li>
+                                    시민연료 민들레 유튜브로 만나는 위클리 민들...
+                                    <span class="date">2024-11-10</span>
+                                    <img src="../static/img/plus.png" alt="plus" class="plus-icon">
+                                </li>
+                                <li>
+                                    사단법인 시민연료 보루 홈페이지를 새롭게 오픈
+                                    <span class="date">2024-11-09</span>
+                                    <img src="../static/img/plus.png" alt="plus" class="plus-icon">
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
                 </li>
                 <li>
                     <div class="content-box">
                         <div class="content-box-header">
                             <div><a href="">안내센터</a></div>
                         </div>
+                        <div class="content-box-body">
+                            <img src="../static/img/cscenter.png" alt="">
+                        </div>
                     </div>
                 </li>
+
             </ul>
         </div>
     </div>
@@ -269,7 +372,17 @@
     <div class="container3"></div>
 </div>
 <div class="footer">
-
+    <div style="width: 1200px; margin: 0 auto; text-align: center;">
+        <div style="margin-bottom: 10px;">
+            회사명: (주)더차칸 | 대표이사: 홍길동 | 사업자등록번호: 123-45-67890
+        </div>
+        <div>
+            주소: 서울특별시 강남구 테헤란로 123 | 전화: 02-123-4567 | 이메일: info@thechakan.kr
+        </div>
+        <div style="margin-top: 10px;">
+            Copyright © 2024 THE CHAKAN. All Rights Reserved.
+        </div>
+    </div>
 </div>
 </body>
 </html>
