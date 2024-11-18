@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 로그인 섹션 */
+        .login {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .login-section {
+            width: 1200px;
+            height: 30px;
+            margin: 0 auto;
+        }
+
+        .login-box {
+            float: right;
+            height: 30px;
+        }
+
+        .login-box > img {
+            height: 13px;
+            padding-right: 5px;
+        }
+
+        /* 로고 */
+        .logo {
+            width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            height: 90px;
+        }
+
+        .logo > img {
+            height: 23px;
+            width: 200px;
+            margin-top: 25px;
+        }
+
+        /* 네비게이션 */
+        .nav {
+            border-top: 1px solid #dedede;
+            border-bottom: 1px solid #dedede;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .nav-ul {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-ul > li {
+            position: relative;
+            text-align: center;
+            color: #666;
+            list-style: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: all 0.2s;
+            border-left: 1px solid #dedede;
+            border-right: 1px solid #dedede;
+            padding: 11px;
+            height: 48px;
+            width: 240px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .nav-ul > li:hover {
+            background-color: #f5f5f5;
+            color: #78B9BA;
+        }
+
+        /* 드롭다운 스타일 */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            z-index: 100;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.12);
+            border: 1px solid #dedede;
+            border-top: none;
+        }
+
+        .dropdown li {
+            padding: 12px;
+            color: #666;
+            font-size: 15px;
+            text-align: center;
+            list-style: none;
+            transition: all 0.2s;
+        }
+
+        .dropdown li:hover {
+            background-color: #f4f4f4;
+            color: #78B9BA;
+        }
+
+        .nav-ul > li:hover .dropdown {
+            display: block;
+        }
+
+        /* 본문 컨테이너 */
+        .body {
+            background-color: #f5f5f5;
+            min-height: 600px;
+            padding: 50px 0;
+        }
+
+        /* 회원가입 섹션 */
+        .agreement-section {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .agreement-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* 단계 표시 헤더 */
+        .step-header {
+            display: flex;
+            font-size: 18px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .step-header div {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 2px solid #ddd;
+            color: #888;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .step-header div.active {
+            color: #fff;
+            background-color: #78B9BA;
+            border-bottom: none;
+        }
+
+        /* 폼 스타일 */
+        .form-group {
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group label {
+            width: 150px;
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-input {
+            flex: 1;
+            height: 40px;
+            padding: 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+            background-color: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-input:focus {
+            border-color: #78B9BA;
+            box-shadow: 0 0 0 2px rgba(120, 185, 186, 0.2);
+            outline: none;
+        }
+
+        .form-input::placeholder {
+            color: #aaa;
+        }
+
+        /* 중복확인 버튼 */
+        .btn-check {
+            margin-left: 10px;
+            padding: 0 20px;
+            height: 40px;
+            font-size: 14px;
+            background-color: #78B9BA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            flex-shrink: 0;
+            width: 100px;
+        }
+
+        .btn-check:hover {
+            background-color: #5A989A;
+        }
+
+        /* 전화번호 입력 그룹 */
+        .phone-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .phone-group select,
+        .phone-group .phone-input {
+            height: 40px;
+            padding: 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .phone-group select {
+            width: 100px;
+        }
+
+        .phone-group .phone-input {
+            width: 100px;
+            text-align: center;
+        }
+
+        .phone-group span {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* 버튼 스타일 */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            height: 48px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 0 30px;
+        }
+
+        .btn-back {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .btn-back:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-submit {
+            background-color: #78B9BA;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background-color: #5A989A;
+        }
+
+        .button-group {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* 푸터 */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-right: 40px;
+        }
+
+        .footer-section:last-child {
+            margin-right: 0;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #aaa;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* 유틸리티 클래스 */
+        .required::after {
+            content: "*";
+            color: #ff6b6b;
+            margin-left: 4px;
+        }
+
+        /* 상태 스타일 */
+        .form-input.error {
+            border-color: #ff6b6b;
+        }
+
+        .form-input.success {
+            border-color: #69db7c;
+        }
+
+        /* 반응형 스타일 */
+        @media (max-width: 1200px) {
+            .login-section,
+            .logo,
+            .nav-ul {
+                width: 100%;
+                padding: 0 20px;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .agreement-section {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label {
+                width: 100%;
+                margin-bottom: 8px;
+            }
+
+            .phone-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="login">
+    <div class="login-section">
+        <div class="login-box">
+            <a href="/login"><img src="/img/login.png" alt="" class="login-login"></a>
+            <a href="/register"><img src="/img/register.png" alt="" class="login-register"></a>
+        </div>
+    </div>
+</div>
+
+<div class="logo-wrap">
+    <div class="logo">
+        <img src="/img/logo.png" alt="">
+    </div>
+
+    <div class="nav">
+        <ul class="nav-ul">
+            <li>회사소개
+                <ul class="dropdown">
+                    <li>인사말</li>
+                    <li>연혁</li>
+                    <li>오시는 길</li>
+                </ul>
+            </li>
+            <li>사업소개
+                <ul class="dropdown">
+                    <li>사업 소개</li>
+                </ul>
+            </li>
+            <li>제품소개
+                <ul class="dropdown">
+                    <li>제품 소개</li>
+                </ul>
+            </li>
+            <li>견적문의
+                <ul class="dropdown">
+                    <li>견적 문의</li>
+                </ul>
+            </li>
+            <li>고객센터
+                <ul class="dropdown">
+                    <li>공지사항</li>
+                    <li>질문과 답변</li>
+                    <li>갤러리</li>
+                    <li>동영상</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="body">
+    <div class="agreement-section">
+        <div class="step-header">
+            <div>01 약관동의</div>
+            <div class="active">02 정보입력</div>
+            <div>03 가입완료</div>
+        </div>
+        <h2 class="agreement-title">회원정보입력</h2>
+
+        <form action="/register/complete" method="post" th:object="user">
+            <div class="form-group">
+                <label for="userId">아이디</label>
+                <input type="text" id="userId" name="userId" class="form-input" placeholder="아이디를 입력하세요">
+                <button type="button" class="btn btn-check">중복확인</button>
+            </div>
+            <div class="form-group">
+                <label for="nickname">닉네임</label>
+                <input type="text" id="nickname" name="nickname" class="form-input" placeholder="닉네임을 입력하세요">
+                <button type="button" class="btn btn-check">중복확인</button>
+            </div>
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" class="form-input" placeholder="비밀번호를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">비밀번호 재확인</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
+                       placeholder="비밀번호를 다시 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="phone">전화번호</label>
+                <div class="phone-group">
+                    <select id="phoneFirst" name="phoneFirst" class="form-input">
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
+                        <option value="019">019</option>
+                    </select>
+                    <span>-</span>
+                    <input type="text" id="phoneMiddle" name="phoneMiddle" class="form-input phone-input" maxlength="4"
+                           placeholder="1234">
+                    <span>-</span>
+                    <input type="text" id="phoneLast" name="phoneLast" class="form-input phone-input" maxlength="4"
+                           placeholder="5678">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birth">생년월일</label>
+                <input type="date" id="birth" name="birth" class="form-input">
+            </div>
+            <div class="button-group">
+                <a href="/register" class="btn btn-back">이전단계</a>
+                <button type="submit" class="btn btn-submit">회원가입</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

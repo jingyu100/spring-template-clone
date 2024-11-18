@@ -1,10 +1,8 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>rpa0108.thechakan.kr/</title>
+    <title>가입완료</title>
     <style>
         /* 기본 스타일 */
         body {
@@ -12,6 +10,7 @@
             font-family: Arial, sans-serif;
         }
 
+        /* 로그인 섹션 */
         .login {
             height: 30px;
             line-height: 30px;
@@ -52,6 +51,7 @@
             border-top: 1px solid #dedede;
             border-bottom: 1px solid #dedede;
             text-align: center;
+            background-color: #fff;
         }
 
         .nav-ul {
@@ -59,6 +59,8 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .nav-ul > li {
@@ -79,7 +81,7 @@
         }
 
         .nav-ul > li:hover {
-            background-color: lightgray;
+            background-color: #f5f5f5;
             color: #78B9BA;
         }
 
@@ -93,25 +95,29 @@
             background-color: #fff;
             z-index: 100;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.12);
+            border: 1px solid #dedede;
+            border-top: none;
         }
 
         .dropdown li {
-            padding: 10px;
+            padding: 12px;
             color: #666;
             font-size: 15px;
             text-align: center;
             list-style: none;
+            transition: all 0.2s;
         }
 
         .dropdown li:hover {
             background-color: #f4f4f4;
+            color: #78B9BA;
         }
 
         .nav-ul > li:hover .dropdown {
             display: block;
         }
 
-        /* 새로운 컨텐츠 스타일 */
+        /* 본문 영역 */
         .body {
             background-color: #f5f5f5;
             min-height: 600px;
@@ -123,88 +129,17 @@
             margin: 0 auto;
             background-color: #fff;
             padding: 40px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
-        .agreement-title {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .agreement-box {
-            margin-bottom: 30px;
-        }
-
-        .agreement-box h3 {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .agreement-content {
-            border: 1px solid #ddd;
-            padding: 15px;
-            height: 150px;
-            overflow-y: auto;
-            background-color: #f9f9f9;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #666;
-        }
-
-        .checkbox-wrap {
-            margin: 10px 0;
-        }
-
-        .checkbox-wrap input[type="checkbox"] {
-            margin-right: 5px;
-        }
-
-        .checkbox-wrap label {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .button-group {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 40px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 0 5px;
-            text-decoration: none;
-        }
-
-        .btn-back {
-            background-color: #888;
-            color: white;
-        }
-
-        .btn-join {
-            background-color: #333;
-            color: white;
-        }
-
-        /* 푸터 스타일 */
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 30px 0;
-            margin-top: 50px;
-        }
-
+        /* 스텝 헤더 */
         .step-header {
             display: flex;
             font-size: 18px;
             margin-bottom: 30px;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
         .step-header div {
@@ -214,6 +149,7 @@
             border-bottom: 2px solid #ddd;
             color: #888;
             font-weight: bold;
+            transition: all 0.3s;
         }
 
         .step-header div.active {
@@ -222,6 +158,117 @@
             border-bottom: none;
         }
 
+        /* 완료 메시지 스타일 */
+        .complete-message {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .complete-title {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .complete-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #78B9BA;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home:hover {
+            background-color: #5A989A;
+        }
+
+        /* 푸터 */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-right: 40px;
+        }
+
+        .footer-section:last-child {
+            margin-right: 0;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #aaa;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* 반응형 스타일 */
+        @media (max-width: 1200px) {
+            .login-section,
+            .logo,
+            .nav-ul {
+                width: 100%;
+                padding: 0 20px;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .agreement-section {
+                width: 90%;
+                padding: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -278,58 +325,50 @@
 <div class="body">
     <div class="agreement-section">
         <div class="step-header">
-            <div class="active">01 약관동의</div>
+            <div>01 약관동의</div>
             <div>02 정보입력</div>
-            <div>03 가입완료</div>
-        </div>
-        <h2 class="agreement-title">회원가입약관동의</h2>
-
-        <div class="agreement-box">
-            <h3>제 1 조 (목적)</h3>
-            <div class="agreement-content">
-                이 약관은 기업홍보체 (주)더차칸 (이하 "사이트"라 합니다)에서 제공하는 인터넷서비스(이하 "서비스"라 합니다)의 이용 조건 및 절차에 관한 기업홍보체와 이용자의 권리와의 및 의무 기타 필요한 사항을 규정함을 목적으로 합니다.
-            </div>
-            <div class="checkbox-wrap">
-                <input type="checkbox" id="agree1">
-                <label for="agree1">이용약관에 동의합니다.</label>
-            </div>
+            <div class="active">03 가입완료</div>
         </div>
 
-        <div class="agreement-box">
-            <h3>개인정보수집 및 이용 약관</h3>
-            <div class="agreement-content">
-                1. 개인정보의 처리 목적<br>
-                - 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별/인증, 회원자격 유지/관리, 서비스 부정이용 방지, 만 14세 미만 아동의 개인정보 처리 시 법정대리인의 동의여부 확인, 각종 고지/통지, 고충처리 목적으로 개인정보를 처리합니다.<br><br>
-
-                2. 개인정보의 처리 및 보유기간<br>
-                - 회원 탈퇴 시까지 또는 관련 법령에서 정한 보유기간까지<br><br>
-
-                3. 정보주체의 권리/의무 및 행사방법<br>
-                - 정보주체는 회사에 대해 언제든지 개인정보 열람, 정정, 삭제, 처리정지 요구 등의 권리를 행사할 수 있습니다.
-            </div>
-            <div class="checkbox-wrap">
-                <input type="checkbox" id="agree2">
-                <label for="agree2">개인정보 수집 및 이용에 동의합니다.</label>
-            </div>
-        </div>
-
-        <div class="button-group">
-            <a href="/" class="btn btn-back">뒤로가기</a>
-            <a href="/register/detail" class="btn btn-join">회원가입</a>
+        <div class="complete-message">
+            <h2 class="complete-title">회원가입이 완료되었습니다!</h2>
+            <p class="complete-text">
+                회원가입이 성공적으로 완료되었습니다.<br>
+                로그인 후 다양한 서비스를 이용하실 수 있습니다.
+            </p>
+            <a href="/" class="btn-home">메인화면으로</a>
         </div>
     </div>
 </div>
 
 <div class="footer">
-    <div style="width: 1200px; margin: 0 auto; text-align: center;">
-        <div style="margin-bottom: 10px;">
-            회사명: (주)더차칸 | 대표이사: 홍길동 | 사업자등록번호: 123-45-67890
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3 class="footer-title">회사 정보</h3>
+            <p class="footer-text">
+                상호: 회사명<br>
+                대표: 홍길동<br>
+                사업자등록번호: 123-45-67890<br>
+                주소: 서울특별시 강남구 테헤란로 123
+            </p>
         </div>
-        <div>
-            주소: 서울특별시 강남구 테헤란로 123 | 전화: 02-123-4567 | 이메일: info@thechakan.kr
+        <div class="footer-section">
+            <h3 class="footer-title">고객 지원</h3>
+            <ul class="footer-links">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">자주 묻는 질문</a></li>
+                <li><a href="#">1:1 문의</a></li>
+                <li><a href="#">이용약관</a></li>
+            </ul>
         </div>
-        <div style="margin-top: 10px;">
-            Copyright © 2024 THE CHAKAN. All Rights Reserved.
+        <div class="footer-section">
+            <h3 class="footer-title">연락처</h3>
+            <p class="footer-text">
+                전화: 02-1234-5678<br>
+                팩스: 02-1234-5679<br>
+                이메일: info@company.com<br>
+                상담시간: 평일 09:00 - 18:00
+            </p>
         </div>
     </div>
 </div>
