@@ -462,7 +462,7 @@
         </div>
         <h2 class="agreement-title">회원정보입력</h2>
 
-        <form action="/register/complete" method="post" th:object="user">
+        <form action="/register/complete" method="post">
             <div class="form-group">
                 <label for="userId">아이디</label>
                 <input type="text" id="userId" name="userId" class="form-input" placeholder="아이디를 입력하세요">
@@ -507,7 +507,7 @@
             </div>
             <div class="button-group">
                 <a href="/register" class="btn btn-back">이전단계</a>
-                <button type="submit" class="btn btn-submit">회원가입</button>
+                <a href="/register/complete" class="btn btn-submit">회원가입</button>
             </div>
         </form>
     </div>

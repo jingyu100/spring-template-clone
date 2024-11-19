@@ -26,13 +26,12 @@ public class MainController {
     }
 
     @GetMapping("/register/detail")
-    public String registerDetailPage(User user) {
+    public String registerDetailPage() {
         return "register_detail";
     }
 
-    @PostMapping("/register/complete")
-    public String registerCompletePage(User user) {
-        userService.save(user);
+    @GetMapping("/register/complete")
+    public String registerCompletePage() {
         return "register_complete";
     }
 }
